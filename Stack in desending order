@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+
+
+int main() {
+    int N, i, j, temp;
+
+    
+    scanf("%d", &N);
+
+    int stack[N];
+
+    
+    for (i = 0; i < N; i++) {
+        scanf("%d", &stack[i]);
+    }
+
+    for (i = 0; i < N - 1; i++) {
+        for (j = i + 1; j < N; j++) {
+            if (stack[i] < stack[j]) {
+                temp = stack[i];
+                stack[i] = stack[j];
+                stack[j] = temp;
+            }
+        }
+    }
+
+    for (i = 0; i < N; i++) {
+        printf("%d ", stack[i]);
+    }
+
+    return 0;
+}
